@@ -1,4 +1,5 @@
 import './index.scss'
+import Swiper, {Pagination, Autoplay} from 'swiper'
 
 const sections = document.querySelectorAll('.section')
 const sectBtns = document.querySelectorAll('.controlls')
@@ -43,5 +44,18 @@ function PageTransitions(){
   element.classList.toggle('light-mode')
  })
 }
+
+const swiper = new Swiper('.swiper', {
+ modules: [Pagination, Autoplay],
+ loop: true,
+ speed: 500,
+ autoplay: {
+  delay: 10000,
+ },
+ pagination: {
+  el: '.swiper-pagination',
+  clickable: true,
+ },
+});
 
 PageTransitions()
