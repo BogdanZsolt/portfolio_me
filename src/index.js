@@ -1,10 +1,12 @@
 import './index.scss'
-import Swiper, {Pagination, Autoplay} from 'swiper'
 
 const sections = document.querySelectorAll('.section')
-const sectBtns = document.querySelectorAll('.controlls')
 const sectBtn = document.querySelectorAll('.control')
 const allSections = document.querySelector('.main-content')
+const firstSkill = document.querySelector('.skill:first-child')
+const skCounters = document.querySelectorAll('.counter span')
+const progressBars = document.querySelectorAll('.skill svg circle')
+
 
 
 function PageTransitions(){
@@ -21,12 +23,6 @@ function PageTransitions(){
  allSections.addEventListener('click', (e) => {
   const id = e.target.dataset.id
   if(id){
-   // remove selected from other btns
-   // sectBtns.forEach((btn) => {
-   //  btn.classList.remove('active')
-   // })
-   // e.target.classList.add('active')
-
    // hide other section
    sections.forEach((section) => {
     section.classList.remove('active')
@@ -44,18 +40,5 @@ function PageTransitions(){
   element.classList.toggle('light-mode')
  })
 }
-
-const swiper = new Swiper('.swiper', {
- modules: [Pagination, Autoplay],
- loop: true,
- speed: 500,
- autoplay: {
-  delay: 10000,
- },
- pagination: {
-  el: '.swiper-pagination',
-  clickable: true,
- },
-});
 
 PageTransitions()
